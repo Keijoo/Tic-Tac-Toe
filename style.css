@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #545454;
+  background-color:#2b2b2b; /* this defines the colour of the body */
+  display: flex; /* the flex display allows us to center the container */
+  font-family: sans-serif;
+  justify-content: center;
+}
+
+.container {
+  background: #14BDAC; /* this is the colour of the game background */
+  margin: 50px;
+  padding: 50px;
+  border-radius: 25px; /* this the container of the game */
+}
+
+.title {
+  text-align: center;
+}
+
+.title span {
+  color: #F2EBD3; /* this makes the tac in the title white */
+}
+
+.status-action {
+  display: flex;
+  margin-top: 25px;
+  font-size: 25px;
+  justify-content: space-around; /* this spreads the text out in equal spaces */
+  height: 30px;  /* this sets the hight of the text */
+
+}
+
+.status span {
+  color: #F2EBD3; /* this changes the colour of the status to whit if o wins */
+}
+
+.reset {
+  cursor: pointer;
+}
+
+.reset:hover {
+  color: #F2EBD3; /* this highlights the button making the cursor a pointer */
+}
+
+.gamemode {
+  cursor: pointer;
+  display: flex;
+}
+
+.gamemode:hover{
+  color: #F2EBD3;
+}
+
+.game-grid {
+  background: #0DA192;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr); /* this  tells the css that both column and rows want to get repeated by 3 spaces by 1 fr unit */
+  grid-gap: 15px; /* this gives gabs in our grid */
+  margin-top: 50px;
+}
+
+.game-cell {
+  background: #14BDAC; /* this outlines the lines of the grid */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; /* this lets the user be able to click each grid */
+  height: 200px;
+  width: 200px;
+}
+.x,
+.o {
+  cursor: default;
+}
+.x::after {
+  content: '×';
+  font-size: 200px;
+}
+.o::after { /* this adjusts the colour for when the use have won*/
+  content: '○';
+  color: #F2EBD3;
+  font-size: 225px;
+}
+.won::after { /* this adjusts the colour for when the use have won*/
+  color: #BD022F;
+}
+
+@media only screen and (max-width: 1024px) { /* this makes it so the screen is responsive to different adjustments in size of the window */
+  .game-grid {
+    margin-top: 25px;
+    grid-gap: 10px;
+  }
+  .game-cell {
+    height: 150px;
+    width: 150px;
+  }
+  .x::after {
+    font-size: 150px;
+  }
+  .o::after {
+    font-size: 175px;
+  }
+}
+@media only screen and (max-width: 540px) { /* this makes it so the screen is responsive to different adjustments in size for mobile devices */
+  .container {
+    margin: 25px;
+    padding: 25px;
+  }
+  .game-cell {
+    height: 100px;
+    width: 100px;
+  }
+  .x::after {
+    font-size: 100px;
+  }
+  .o::after {
+    font-size: 125px;
+  }
+}
